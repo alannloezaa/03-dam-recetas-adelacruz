@@ -1,22 +1,22 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:recetas_app/screens/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<StatefulWidget> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(milliseconds: 2200), () {
+    Timer(const Duration(seconds: 4), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
+        MaterialPageRoute(builder: () => const HomeScreen()),
       );
     }); // Timer
   }
@@ -24,20 +24,31 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 127, 1, 133),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(Icons.restaurant, color: Colors.white, size: 90),
-          SizedBox(height: 16),
-          Text(
-            "Recetas App",
-            style: TextStyle(color: Colors.white, fontSize: 28),
-          ),
-          SizedBox(height: 24),
-          CircularProgressIndicator(color: Colors.white),
-        ],
-      ), // Column
-    ); // Scaffold
+      backgroundColor: Colors.green,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.restaurant_menu, color: Colors.white, size: 90),
+            SizedBox(height: 16),
+            Text(
+              "Recetas App",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 8),
+            Text(
+              "Sabores del Mayab",
+              style: TextStyle(color: Colors.white70, fontSize: 13),
+            ),
+            SizedBox(height: 24),
+            CircularProgressIndicator(color: Colors.white),
+          ],
+        ),
+      ),
+    );
   }
 }
